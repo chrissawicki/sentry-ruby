@@ -25,9 +25,7 @@ module Raven
           req.headers['X-Sentry-Auth'] = auth_header
           
           puts "--------------------"
-          puts "#{req.headers['Content-Type']}"
-          puts "#{req.headers['X-Sentry-Auth']}"
-          puts "#{data}"
+          p req.headers
           puts "===================="
           
           req.body = data
