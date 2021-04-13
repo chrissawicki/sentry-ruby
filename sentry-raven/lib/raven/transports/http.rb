@@ -23,6 +23,10 @@ module Raven
         conn.post "#{path}api/#{project_id}/store/" do |req|
           req.headers['Content-Type'] = options[:content_type]
           req.headers['X-Sentry-Auth'] = auth_header
+          
+          logger = Logger.new("#{Rails.root}/log/my.log")
+          logger.info("#{req.headers['Content-Type']}, #{req.headers['X-Sentry-Auth']}, #{data}")
+          
           req.body = data
         end
       rescue Faraday::Error => e
