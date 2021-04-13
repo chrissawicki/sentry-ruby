@@ -24,8 +24,11 @@ module Raven
           req.headers['Content-Type'] = options[:content_type]
           req.headers['X-Sentry-Auth'] = auth_header
           
-          logger = Logger.new("#{Rails.root}/log/my.log")
-          logger.info("#{req.headers['Content-Type']}, #{req.headers['X-Sentry-Auth']}, #{data}")
+          puts "--------------------"
+          puts "#{req.headers['Content-Type']}"
+          puts "#{req.headers['X-Sentry-Auth']}"
+          puts "#{data}"
+          puts "===================="
           
           req.body = data
         end
