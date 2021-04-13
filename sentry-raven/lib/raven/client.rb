@@ -78,6 +78,9 @@ module Raven
     def encode(event)
       hash = @processors.reduce(event.to_hash) { |a, e| e.process(a) }
       encoded = JSON.fast_generate(hash)
+      
+      p encoded
+      configuration.encoding = 'json'
 
       case configuration.encoding
       when 'gzip'
