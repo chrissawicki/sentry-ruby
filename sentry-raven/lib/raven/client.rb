@@ -32,6 +32,10 @@ module Raven
 
       # Convert to hash
       event = event.to_hash
+      
+      puts "+++++++++++++++++++++"
+      p event
+      puts "====================="
 
       unless @state.should_try?
         failed_send(nil, event)
